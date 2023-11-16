@@ -19,7 +19,6 @@ public class Engine {
     private static final int SIZE = 10;
     private static String userName;
     private static final int STEP_LIMIT = 3;
-    private static final int ITERATION_LIMIT = 3;
 
     private static final int[] randomNumbers = new int[STEP_LIMIT];
     private static final int[] randomNumbersSecond = new int[STEP_LIMIT];
@@ -206,10 +205,10 @@ public class Engine {
             } else {
                 System.out.println(messageIncorrect(playerChoice, check));
                 System.out.println("Let's try again, " + userName + "!");
-                return;
+                break;
             }
         }
-        if (correctCount == WIN_GAME_LIMIT) {
+        if (correctCount == 3) {
             System.out.println(congratulations());
         }
     }
