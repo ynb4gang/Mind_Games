@@ -227,6 +227,7 @@ public class Engine {
         }
         return "yes";
     }
+
     public static int GetRandomNumber() {
         return (int) (Math.random() * 100);
     }
