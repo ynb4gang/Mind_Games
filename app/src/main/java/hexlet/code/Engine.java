@@ -16,13 +16,13 @@ public class Engine {
     private static String userName;
     private static final int STEP_LIMIT = 3;
 
-    private static final int[] randomNumbers = new int[STEP_LIMIT];
-    private static final int[] randomNumbersSecond = new int[STEP_LIMIT];
-    private static final int[] randomNumbersStep = new int[STEP_LIMIT];
-    private static final int[] randomNumbersCheck = new int[STEP_LIMIT];
-    private static final int[] randomNumbersMarker = new int[STEP_LIMIT];
-    private static final String[] correctAnswersArray = new String[STEP_LIMIT];
-    private static final String[] randomOperationsArray = new String[STEP_LIMIT];
+    private static final int[] RANDOM_NUMBERS = new int[STEP_LIMIT];
+    private static final int[] RANDOM_NUMBERS_SECOND = new int[STEP_LIMIT];
+    private static final int[] RANDOM_NUMBERS_STEP = new int[STEP_LIMIT];
+    private static final int[] RANDOM_NUMBERS_CHECK = new int[STEP_LIMIT];
+    private static final int[] RANDOM_NUMBERS_MARKER = new int[STEP_LIMIT];
+    private static final String[] CORRECT_ANSWERS_ARRAY = new String[STEP_LIMIT];
+    private static final String[] RANDOM_OPERATIONS_ARRAY = new String[STEP_LIMIT];
     public static void cli() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Brain Games!");
@@ -44,27 +44,27 @@ public class Engine {
         return scanner.nextInt();
     }
     public static void greetLoading() {
-        for(int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT ++){
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             int randomNumber = getRandomNumber();
             String correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
-            randomNumbers[ITERATION_LIMIT] = randomNumber;
-            correctAnswersArray[ITERATION_LIMIT] = correctAnswer;
+            RANDOM_NUMBERS[iterationLimit] = randomNumber;
+            CORRECT_ANSWERS_ARRAY[iterationLimit] = correctAnswer;
         }
     }
     public static void greet() {
         int correctCount = 0;
         greetLoading();
-        for (int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT++){
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             String prompt = "Your answer: ";
-            int randomNumber = randomNumbers[ITERATION_LIMIT];
-            String correctAnswer = correctAnswersArray[ITERATION_LIMIT];
+            int randomNumber = RANDOM_NUMBERS[iterationLimit];
+            String correctAnswer = CORRECT_ANSWERS_ARRAY[iterationLimit];
             generateQuestion(randomNumber);
             String playerChoice = getUserAnswer(prompt);
-            if (correctAnswer.equals(playerChoice)){
+            if (correctAnswer.equals(playerChoice)) {
                 correctCount++;
                 System.out.println(messageCorrect());
-            } else{
-                System.out.println(messageIncorrect(playerChoice,correctAnswer));
+            } else {
+                System.out.println(messageIncorrect(playerChoice, correctAnswer));
                 System.out.println("Let's try again, " + userName + "!");
                 break;
             }
@@ -74,23 +74,23 @@ public class Engine {
         }
     }
     public static void calcLoading(Random random) {
-        for (int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT++){
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             int firstRandomNumber = getRandomNumber();
             int secondRandomNumber = getRandomNumber();
             String[] operations = {"+", "-", "*"};
             String operation = operations[random.nextInt(operations.length)];
-            randomNumbers[ITERATION_LIMIT] = firstRandomNumber;
-            randomNumbersSecond[ITERATION_LIMIT] = secondRandomNumber;
-            randomOperationsArray[ITERATION_LIMIT] = operation;
+            RANDOM_NUMBERS[iterationLimit] = firstRandomNumber;
+            RANDOM_NUMBERS_SECOND[iterationLimit] = secondRandomNumber;
+            RANDOM_OPERATIONS_ARRAY[iterationLimit] = operation;
         }
     }
     public static void calc(Random random) {
         int correctCount = 0;
         calcLoading(random);
-        for (int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT++) {
-            int firstRandomNumber = randomNumbers[ITERATION_LIMIT];
-            int secondRandomNumber = randomNumbersSecond[ITERATION_LIMIT];
-            String operation = randomOperationsArray[ITERATION_LIMIT];
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+            int firstRandomNumber = RANDOM_NUMBERS[iterationLimit];
+            int secondRandomNumber = RANDOM_NUMBERS_SECOND[iterationLimit];
+            String operation = RANDOM_OPERATIONS_ARRAY[iterationLimit];
             int check = 0;
             check = switch (operation) {
                 case "+" -> firstRandomNumber + secondRandomNumber;
@@ -109,24 +109,24 @@ public class Engine {
                 break;
             }
         }
-        if (correctCount == WIN_GAME_LIMIT){
+        if (correctCount == WIN_GAME_LIMIT) {
             System.out.println(congratulations());
         }
     }
     public static void loadingGCD() {
-        for (int ITERATION_LIMIT = 0 ; ITERATION_LIMIT < 3; ITERATION_LIMIT++){
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             int firstRandomNumber = getRandomNumber();
             int secondRandomNumber = getRandomNumber();
-            randomNumbers[ITERATION_LIMIT] = firstRandomNumber;
-            randomNumbersSecond[ITERATION_LIMIT] = secondRandomNumber;
+            RANDOM_NUMBERS[iterationLimit] = firstRandomNumber;
+            RANDOM_NUMBERS_SECOND[iterationLimit] = secondRandomNumber;
         }
     }
     public static void gcd() {
         int correctCount = 0;
         loadingGCD();
-        for (int ITERATION_LIMIT = 0 ; ITERATION_LIMIT < 3; ITERATION_LIMIT++) {
-            int firstRandomNumber = randomNumbers[ITERATION_LIMIT];
-            int secondRandomNumber = randomNumbersSecond[ITERATION_LIMIT];
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+            int firstRandomNumber = RANDOM_NUMBERS[iterationLimit];
+            int secondRandomNumber = RANDOM_NUMBERS_SECOND[iterationLimit];
             int check = findGCD(firstRandomNumber, secondRandomNumber);
             generateQuestion(firstRandomNumber, secondRandomNumber);
             int playerChoice = getUserAnswer();
@@ -144,25 +144,25 @@ public class Engine {
         }
     }
     public static void progressionLoading() {
-        for(int ITERATION_LIMIT = 0 ; ITERATION_LIMIT < 3; ITERATION_LIMIT++){
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             int startValue = getRandomNumber();
             int step = getRandomStep(new Random());
             int marker = getRandomMarker(new Random());
             int check = startValue + (step * marker);
-            randomNumbers[ITERATION_LIMIT] = startValue;
-            randomNumbersStep[ITERATION_LIMIT] = step;
-            randomNumbersMarker[ITERATION_LIMIT] = marker;
-            randomNumbersCheck[ITERATION_LIMIT] = check;
+            RANDOM_NUMBERS[iterationLimit] = startValue;
+            RANDOM_NUMBERS_STEP[iterationLimit] = step;
+            RANDOM_NUMBERS_MARKER[iterationLimit] = marker;
+            RANDOM_NUMBERS_CHECK[iterationLimit] = check;
         }
     }
     public static void progression() {
         progressionLoading();
         int correctCount = 0;
-        for(int ITERATION_LIMIT = 0 ; ITERATION_LIMIT < 3; ITERATION_LIMIT++) {
-            int startValue = randomNumbers[ITERATION_LIMIT];
-            int step = randomNumbersStep[ITERATION_LIMIT];
-            int marker = randomNumbersMarker[ITERATION_LIMIT];
-            int check = randomNumbersCheck[ITERATION_LIMIT];
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+            int startValue = RANDOM_NUMBERS[iterationLimit];
+            int step = RANDOM_NUMBERS_STEP[iterationLimit];
+            int marker = RANDOM_NUMBERS_MARKER[iterationLimit];
+            int check = RANDOM_NUMBERS_CHECK[iterationLimit];
             generateProgressionQuestion(startValue, step, marker);
             int playerChoice = getUserAnswer();
             if (check == playerChoice) {
@@ -179,20 +179,20 @@ public class Engine {
         }
     }
     public static void primeLoading() {
-        for (int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT++) {
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             int number = getRandomNumber();
-            randomNumbers[ITERATION_LIMIT] = number;
-            correctAnswersArray[ITERATION_LIMIT] = isPrime(number);
+            RANDOM_NUMBERS[iterationLimit] = number;
+            CORRECT_ANSWERS_ARRAY[iterationLimit] = isPrime(number);
         }
     }
 
     public static void prime() {
         primeLoading();
         int correctCount = 0;
-        for (int ITERATION_LIMIT = 0; ITERATION_LIMIT < 3; ITERATION_LIMIT++) {
+        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
             String prompt = "Your answer: ";
-            int number = randomNumbers[ITERATION_LIMIT];
-            String check = correctAnswersArray[ITERATION_LIMIT];
+            int number = RANDOM_NUMBERS[iterationLimit];
+            String check = CORRECT_ANSWERS_ARRAY[iterationLimit];
             generateQuestion(number);
             String playerChoice = getUserAnswer(prompt);
             if (check.equals(playerChoice)) {
@@ -262,7 +262,7 @@ public class Engine {
     public static void generateQuestion(int question) {
         System.out.println("Question: " + question);
     }
-    public static void generateQuestion(int firstNumber,int secondNumber, String operation) {
+    public static void generateQuestion(int firstNumber, int secondNumber, String operation) {
         System.out.println("Question: " + firstNumber + " " + operation + " " + secondNumber);
     }
     public static void generateProgressionQuestion(int startValue, int step, int marker) {
@@ -278,7 +278,7 @@ public class Engine {
         System.out.println();
     }
 
-    public static void generateQuestion(int firstNumber,int secondNumber) {
+    public static void generateQuestion(int firstNumber, int secondNumber) {
         System.out.println("Question: " + firstNumber + " " + secondNumber);
     }
     public static int getUserAnswer() {
