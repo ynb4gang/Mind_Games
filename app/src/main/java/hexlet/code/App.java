@@ -1,4 +1,5 @@
 package hexlet.code;
+
 public class App extends Engine{
     public static void main(String[] args) {
         int gameNumber = Greeting();
