@@ -15,6 +15,12 @@ public class Engine {
     private static final int SIZE = 10;
     private static String userName;
     private static final int STEP_LIMIT = 3;
+    private static final int MAGIC_NUMBER_3 = 3;
+    private static final int MAGIC_NUMBER_6 = 3;
+    private static final int MAGIC_NUMBER_5 = 5;
+    private static final int MAGIC_NUMBER_100 = 100;
+    private static final int MAGIC_NUMBER_15 = 15;
+    private static final int MAGIC_NUMBER_8 = 8;
 
     private static final int[] RANDOM_NUMBERS = new int[STEP_LIMIT];
     private static final int[] RANDOM_NUMBERS_SECOND = new int[STEP_LIMIT];
@@ -44,7 +50,7 @@ public class Engine {
         return scanner.nextInt();
     }
     public static void greetLoading() {
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int randomNumber = getRandomNumber();
             String correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
             RANDOM_NUMBERS[iterationLimit] = randomNumber;
@@ -54,7 +60,7 @@ public class Engine {
     public static void greet() {
         int correctCount = 0;
         greetLoading();
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             String prompt = "Your answer: ";
             int randomNumber = RANDOM_NUMBERS[iterationLimit];
             String correctAnswer = CORRECT_ANSWERS_ARRAY[iterationLimit];
@@ -74,7 +80,7 @@ public class Engine {
         }
     }
     public static void calcLoading(Random random) {
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int firstRandomNumber = getRandomNumber();
             int secondRandomNumber = getRandomNumber();
             String[] operations = {"+", "-", "*"};
@@ -87,7 +93,7 @@ public class Engine {
     public static void calc(Random random) {
         int correctCount = 0;
         calcLoading(random);
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int firstRandomNumber = RANDOM_NUMBERS[iterationLimit];
             int secondRandomNumber = RANDOM_NUMBERS_SECOND[iterationLimit];
             String operation = RANDOM_OPERATIONS_ARRAY[iterationLimit];
@@ -114,7 +120,7 @@ public class Engine {
         }
     }
     public static void loadingGCD() {
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int firstRandomNumber = getRandomNumber();
             int secondRandomNumber = getRandomNumber();
             RANDOM_NUMBERS[iterationLimit] = firstRandomNumber;
@@ -124,7 +130,7 @@ public class Engine {
     public static void gcd() {
         int correctCount = 0;
         loadingGCD();
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int firstRandomNumber = RANDOM_NUMBERS[iterationLimit];
             int secondRandomNumber = RANDOM_NUMBERS_SECOND[iterationLimit];
             int check = findGCD(firstRandomNumber, secondRandomNumber);
@@ -144,7 +150,7 @@ public class Engine {
         }
     }
     public static void progressionLoading() {
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int startValue = getRandomNumber();
             int step = getRandomStep(new Random());
             int marker = getRandomMarker(new Random());
@@ -158,7 +164,7 @@ public class Engine {
     public static void progression() {
         progressionLoading();
         int correctCount = 0;
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int startValue = RANDOM_NUMBERS[iterationLimit];
             int step = RANDOM_NUMBERS_STEP[iterationLimit];
             int marker = RANDOM_NUMBERS_MARKER[iterationLimit];
@@ -179,7 +185,7 @@ public class Engine {
         }
     }
     public static void primeLoading() {
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             int number = getRandomNumber();
             RANDOM_NUMBERS[iterationLimit] = number;
             CORRECT_ANSWERS_ARRAY[iterationLimit] = isPrime(number);
@@ -189,7 +195,7 @@ public class Engine {
     public static void prime() {
         primeLoading();
         int correctCount = 0;
-        for (int iterationLimit = 0; iterationLimit < 3; iterationLimit++) {
+        for (int iterationLimit = 0; iterationLimit < MAGIC_NUMBER_3; iterationLimit++) {
             String prompt = "Your answer: ";
             int number = RANDOM_NUMBERS[iterationLimit];
             String check = CORRECT_ANSWERS_ARRAY[iterationLimit];
@@ -221,7 +227,7 @@ public class Engine {
             return "no";
         }
 
-        int i = 5;
+        int i = MAGIC_NUMBER_5;
         int w = 2;
 
         while (i * i <= number) {
@@ -230,7 +236,7 @@ public class Engine {
             }
 
             i += w;
-            w = 6 - w;
+            w = MAGIC_NUMBER_6 - w;
         }
 
         return "yes";
@@ -240,13 +246,13 @@ public class Engine {
 
 
     public static int getRandomNumber() {
-        return (int) (Math.random() * 100);
+        return (int) (Math.random() * MAGIC_NUMBER_100);
     }
     public static int getRandomStep(Random random) {
-        return random.nextInt(15);
+        return random.nextInt(MAGIC_NUMBER_15);
     }
     public static int getRandomMarker(Random random) {
-        return random.nextInt(8);
+        return random.nextInt(MAGIC_NUMBER_8);
     }
     public static String messageCorrect() {
         return "Correct!";
