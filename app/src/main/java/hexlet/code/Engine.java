@@ -4,10 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int SMALL_PRIME_LIMIT = 3;
-    private static final int FIRST_DIVISOR = 2;
-    private static final int SECOND_DIVISOR = 3;
-    private static final int INCREMENT = 6;
     private static final int WIN_GAME_LIMIT = 3;
     public static final int GREET_GAME = 1;
     public static final int EVEN_GAME = 2;
@@ -216,19 +212,32 @@ public class Engine {
         if (number <= 1) {
             return "no";
         }
-        if (number <= SMALL_PRIME_LIMIT) {
+
+        if (number == 2 || number == 3) {
             return "yes";
         }
-        if (number % FIRST_DIVISOR == 0 || number % SECOND_DIVISOR == 0) {
+
+        if (number % 2 == 0 || number % 3 == 0) {
             return "no";
         }
-        for (int i = SECOND_DIVISOR; i * i <= number; i += INCREMENT) {
-            if (number % i == 0 || number % (i + 2) == 0) {
+
+        int i = 5;
+        int w = 2;
+
+        while (i * i <= number) {
+            if (number % i == 0) {
                 return "no";
             }
+
+            i += w;
+            w = 6 - w;
         }
+
         return "yes";
     }
+
+
+
 
     public static int getRandomNumber() {
         return (int) (Math.random() * 100);
