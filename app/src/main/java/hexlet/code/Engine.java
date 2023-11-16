@@ -176,33 +176,34 @@ public class Engine {
             System.out.println(congratulations());
         }
     }
-    public static void PrimeLoading(){
-        for(int i = 0 ; i < 3; i++){
-            int number  = GetRandomNumber();
+    public static void PrimeLoading() {
+        for (int i = 0; i < 3; i++) {
+            int number = GetRandomNumber();
             randomNumbersArray[i] = number;
             correctAnswersArray[i] = isPrime(number);
         }
     }
+
     public static void Prime() {
         PrimeLoading();
-        int correctCount = 3;
-        for(int i = 0 ; i < 3; i++){
+        int correctCount = 0; // Исправлено: инициализация с 0
+        for (int i = 0; i < 3; i++) {
             String prompt = "Your answer: ";
-            int number  = randomNumbersArray[i];
+            int number = randomNumbersArray[i];
             String check = correctAnswersArray[i];
             generateQuestion(number);
             String playerChoice = getUserAnswer(prompt);
-            if (check.equals(playerChoice)){
+            if (check.equals(playerChoice)) {
                 correctCount++;
                 System.out.println(messageCorrect());
             } else {
                 System.out.println(messageIncorrect(playerChoice, check));
                 System.out.println("Let's try again, " + userName + "!");
-                break;
+                return; // Исправлено: используйте return
             }
-            if (correctCount == WIN_GAME){
-                System.out.println(congratulations());
-            }
+        }
+        if (correctCount == WIN_GAME) {
+            System.out.println(congratulations());
         }
     }
     public static String isPrime(int number) {
