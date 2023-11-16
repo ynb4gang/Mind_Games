@@ -186,7 +186,7 @@ public class Engine {
 
     public static void Prime() {
         PrimeLoading();
-        int correctCount = 0; // Исправлено: инициализация с 0
+        int correctCount = 0;
         for (int i = 0; i < 3; i++) {
             String prompt = "Your answer: ";
             int number = randomNumbersArray[i];
@@ -199,7 +199,7 @@ public class Engine {
             } else {
                 System.out.println(messageIncorrect(playerChoice, check));
                 System.out.println("Let's try again, " + userName + "!");
-                return; // Исправлено: используйте return
+                return;
             }
         }
         if (correctCount == WIN_GAME) {
