@@ -1,28 +1,30 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 public class App extends Engine {
     public static void main(String[] args) {
         int gameNumber = greeting();
         switch (gameNumber) {
-            case Engine.GREET_GAME:
+            case GREET_GAME:
                 Cli.play();
                 break;
-            case Engine.EVEN_GAME:
+            case EVEN_GAME:
                 Greet.play();
                 break;
-            case Engine.CALC_GAME:
+            case CALC_GAME:
                 Calc.play();
                 break;
-            case Engine.GCD_GAME:
+            case GCD_GAME:
                 GCD.play();
                 break;
-            case Engine.PROGRESSION_GAME:
+            case PROGRESSION_GAME:
                 Progression.play();
                 break;
             case PRIME_GAME:
                 Prime.play();
                 break;
-            case Engine.EXIT_GAME:
+            case EXIT_GAME:
                 System.out.println("Goodbye!");
                 break;
             default:
