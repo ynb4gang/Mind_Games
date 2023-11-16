@@ -1,6 +1,11 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Calc;
+import hexlet.code.games.Cli;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Greet;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 public class App extends Engine {
     public static void main(String[] args) {
