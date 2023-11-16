@@ -1,8 +1,8 @@
 package hexlet.code;
 public class Greet {
     public static void play() {
-        Engine.Cli();
+        Engine.cli();
         Engine.getRulesGreet();
-        Engine.Greet();
+        Engine.greet();
     }
 }

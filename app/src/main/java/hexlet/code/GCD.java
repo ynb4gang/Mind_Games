@@ -2,8 +2,8 @@ package hexlet.code;
 
 public class GCD {
     public static void play() {
-        Engine.Cli();
+        Engine.cli();
         Engine.getRulesGCD();
-        Engine.GCD();
+        Engine.gcd();
     }
 }

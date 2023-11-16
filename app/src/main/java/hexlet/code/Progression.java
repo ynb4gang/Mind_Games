@@ -2,8 +2,8 @@ package hexlet.code;
 
 public class Progression {
     public static void play() {
-        Engine.Cli();
+        Engine.cli();
         Engine.getRulesProgression();
-        Engine.Progression();
+        Engine.progression();
     }
 }

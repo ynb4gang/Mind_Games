@@ -2,8 +2,8 @@ package hexlet.code;
 
 public class Prime {
     public static void play() {
-        Engine.Cli();
+        Engine.cli();
         Engine.getRulesPrime();
-        Engine.Prime();
+        Engine.prime();
     }
 }

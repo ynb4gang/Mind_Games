@@ -2,7 +2,7 @@ package hexlet.code;
 
 public class App extends Engine{
     public static void main(String[] args) {
-        int gameNumber = Greeting();
+        int gameNumber = greeting();
         switch (gameNumber){
             case Engine.GREET_GAME:
                 Cli.play();

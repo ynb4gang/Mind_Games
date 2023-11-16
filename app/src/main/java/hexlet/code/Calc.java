@@ -5,8 +5,8 @@ import java.util.Random;
 public class Calc {
     public static void play() {
         Random random = new Random();
-        Engine.Cli();
+        Engine.cli();
         Engine.getRulesCalc();
-        Engine.Calc(random);
+        Engine.calc(random);
     }
 }
