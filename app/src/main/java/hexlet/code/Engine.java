@@ -242,7 +242,7 @@ public class Engine {
         System.out.println("Question: " + question);
     }
     public static void generateQuestion(int firstNumber,int secondNumber, String operation) {
-        System.out.println("Question: " + firstNumber + operation + secondNumber);
+        System.out.println("Question: " + firstNumber + " " + operation + " " + secondNumber);
     }
     public static void generateProgressionQuestion(int startValue, int step, int marker) {
         System.out.print("Question: ");
