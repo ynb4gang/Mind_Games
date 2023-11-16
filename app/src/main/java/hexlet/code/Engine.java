@@ -4,9 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
-    private static final int MAGIC_NUMBER_3 = 3 ;
-    private static final int MAGIC_NUMBER_5 = 5;
-    private static final int MAGIC_NUMBER_6 = 6;
+    private static final int SMALL_PRIME_LIMIT = 3;
+    private static final int FIRST_DIVISOR = 2;
+    private static final int SECOND_DIVISOR = 3;
+    private static final int INCREMENT = 6;
     public static int WIN_GAME = 3;
     public static final int GREET_GAME = 1;
     public static final int EVEN_GAME = 2;
@@ -213,13 +214,13 @@ public class Engine {
         if (number <= 1) {
             return "no";
         }
-        if (number <= MAGIC_NUMBER_3) {
+        if (number <= SMALL_PRIME_LIMIT) {
             return "yes";
         }
-        if (number % 2 == 0 || number % MAGIC_NUMBER_3 == 0) {
+        if (number % FIRST_DIVISOR == 0 || number % SECOND_DIVISOR == 0) {
             return "no";
         }
-        for (int i = MAGIC_NUMBER_5; i * i <= number; i += MAGIC_NUMBER_6) {
+        for (int i = SECOND_DIVISOR; i * i <= number; i += INCREMENT) {
             if (number % i == 0 || number % (i + 2) == 0) {
                 return "no";
             }
@@ -302,7 +303,7 @@ public class Engine {
         System.out.println("What number is missing in the progression?");
     }
     public static void getRulesPrime() {
-        System.out.println("Answer 'yes' if the number is prime, otherwise answer 'no'.");
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 }
 
