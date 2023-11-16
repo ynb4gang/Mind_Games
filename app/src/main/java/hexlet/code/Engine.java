@@ -210,7 +210,7 @@ public class Engine {
                 break;
             }
         }
-        if (correctCount == 3) {
+        if (correctCount == MAGIC_NUMBER_3) {
             System.out.println(congratulations());
         }
     }
@@ -219,11 +219,11 @@ public class Engine {
             return "no";
         }
 
-        if (number == 2 || number == 3) {
+        if (number == 2 || number == MAGIC_NUMBER_3) {
             return "yes";
         }
 
-        if (number % 2 == 0 || number % 3 == 0) {
+        if (number % 2 == 0 || number % MAGIC_NUMBER_3 == 0) {
             return "no";
         }
 
