@@ -4,6 +4,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Engine {
+    private static final int MAGIC_NUMBER_3 = 3 ;
+    private static final int MAGIC_NUMBER_5 = 5;
+    private static final int MAGIC_NUMBER_6 = 6;
     public static int WIN_GAME = 3;
     public static final int GREET_GAME = 1;
     public static final int EVEN_GAME = 2;
@@ -210,13 +213,17 @@ public class Engine {
         if (number <= 1) {
             return "no";
         }
-
-        for (int i = 2; i <= Math.sqrt(number); i++) {
-            if (number % i == 0) {
+        if (number <= MAGIC_NUMBER_3) {
+            return "yes";
+        }
+        if (number % 2 == 0 || number % MAGIC_NUMBER_3 == 0) {
+            return "no";
+        }
+        for (int i = MAGIC_NUMBER_5; i * i <= number; i += MAGIC_NUMBER_6) {
+            if (number % i == 0 || number % (i + 2) == 0) {
                 return "no";
             }
         }
-
         return "yes";
     }
     public static int GetRandomNumber() {
