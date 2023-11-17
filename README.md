@@ -1,7 +1,7 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/ynb4gang/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ynb4gang/java-project-61/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/64b53caa65826244f339/maintainability)](https://codeclimate.com/github/ynb4gang/java-project-61/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/64b53caa65826244f339/test_coverage)](https://codeclimate.com/github/ynb4gang/java-project-61/test_coverage)
+[![Maintainability](https://api.codeclimate.com/v1/badges/cdb474d7904f6beb4fec/maintainability)](https://codeclimate.com/github/ynb4gang/java-project-61/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/cdb474d7904f6beb4fec/test_coverage)](https://codeclimate.com/github/ynb4gang/java-project-61/test_coverage)
 
 1. [![EVEN](https://asciinema.org/a/619581.svg)](https://asciinema.org/a/619581) - Recordings for EVEN functionality.
    - Enjoy the Even algorithm in action! 😄
