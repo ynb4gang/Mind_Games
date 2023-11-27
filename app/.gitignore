@@ -41,10 +41,5 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Ignore everything
-*
-
-# Allow specific directories and files
-!/app/**
-!/.github/workflows/
-!/README.md
+/.idea
+/.gradle
