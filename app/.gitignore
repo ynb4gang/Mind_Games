@@ -40,6 +40,10 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/build
-/.gradle
-/.idea
+build
+
+**/logs/
+
+bin
+.project*
+.idea/
