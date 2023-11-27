@@ -1,7 +1,6 @@
 package hexlet.code;
 
 import hexlet.code.games.Cli;
-
 import java.util.Scanner;
 
 
@@ -24,12 +23,12 @@ public class Engine {
             } else {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. "
                         + "Correct answer was '" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + Cli.userName + "!");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 break;
             }
         }
         if (correctCount == WIN_GAME_LIMIT) {
-            System.out.println("Congratulations, " + Cli.userName + "!");
+            System.out.println("Congratulations, " + Cli.getUserName() + "!");
         }
     }
 }

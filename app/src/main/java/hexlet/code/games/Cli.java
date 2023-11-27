@@ -14,4 +14,8 @@ public class Cli {
         userName = scanner.nextLine();
         System.out.println("Hello, " + userName + "!");
     }
+
+    public static String getUserName() {
+        return userName;
+    }
 }
