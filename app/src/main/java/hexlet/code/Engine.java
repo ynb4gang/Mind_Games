@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class Engine {
     private static final int WIN_GAME_LIMIT = 3;
     public static final int MAGIC_NUMBER_3 = 3;
-    public static final int SIZE = 10;
     public static void run(String[][] questionsAndAnswers) {
         Scanner scanner = new Scanner(System.in);
         Cli.cli();

@@ -5,7 +5,7 @@ import hexlet.code.Utils;
 public class Prime {
     private static final int DIVISOR_6 = 3;
     private static final int DIVISOR_5 = 5;
-
+    private static final int RANDOM_NUMBER_200 = 200;
     public static void play() {
         getRulesPrime();
         String[][] questionsAndAnswers = generateQuestionsAndAnswers();
@@ -15,7 +15,7 @@ public class Prime {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int number = Utils.getRandomNumber(1,200);
+            int number = Utils.getRandomNumber(1, RANDOM_NUMBER_200);
             String numberString = String.valueOf(number);
             questionsAndAnswers[iterationLimit][0] = numberString;
             questionsAndAnswers[iterationLimit][1] = isPrime(number) ? "yes" : "no";

@@ -7,6 +7,8 @@ import java.util.Random;
 public class Progression {
     private static final int RANDOM_NUMBER_8 = 8;
     private static final int RANDOM_NUMBER_15 = 15;
+    private static final int RANDOM_NUMBER_100 = 100;
+    public static final int SIZE = 10;
     public static void play() {
         getRulesProgression();
         String[][] questionsAndAnswers = questionsAndAnswers();
@@ -16,7 +18,7 @@ public class Progression {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int startValue = Utils.getRandomNumber(1,100);
+            int startValue = Utils.getRandomNumber(1, RANDOM_NUMBER_100);
             int step = getRandomStep(random);
             int marker = getRandomMarker(random);
             String check = String.valueOf(startValue + (step * marker));
@@ -28,7 +30,7 @@ public class Progression {
     }
     public static String generateProgressionQuestion(int startValue, int step, int marker) {
         StringBuilder question = new StringBuilder();
-        for (int i = 0; i < Engine.SIZE; i++) {
+        for (int i = 0; i < SIZE; i++) {
             if (i == marker) {
                 question.append(".. ");
             } else {

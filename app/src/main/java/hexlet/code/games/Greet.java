@@ -3,6 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 public class Greet {
+    private static final int RANDOM_NUMBER_100 = 100;
     public static void play() {
         getRulesGreet();
         String[][] questionsAndAnswers = questionsAndAnswers();
@@ -11,7 +12,7 @@ public class Greet {
     private static String[][] questionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int randomNumber = Utils.getRandomNumber(1,100);
+            int randomNumber = Utils.getRandomNumber(1, RANDOM_NUMBER_100);
             String correctAnswer = randomNumber % 2 == 0 ? "yes" : "no";
             questionsAndAnswers[iterationLimit][0] = String.valueOf(randomNumber);
             questionsAndAnswers[iterationLimit][1] = correctAnswer;
