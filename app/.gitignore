@@ -41,11 +41,10 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-# Ignore Gradle build output directory
-build
+# Ignore everything
+*
 
-**/logs/
-
-bin
-.project*
-.idea/
+# Allow specific directories and files
+!/app/**
+!/.github/workflows/
+!/README.md
