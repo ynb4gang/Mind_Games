@@ -2,19 +2,19 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import java.util.Random;
-
+import hexlet.code.Utils;
 public class Calc {
     public static void play() {
         Random random = new Random();
-        Engine.getRulesCalc();
+        getRulesCalc();
         String[][] questionsAndAnswers = questionsAndAnswers(random);
         Engine.run(questionsAndAnswers);
     }
     private static String[][] questionsAndAnswers(Random random) {
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int firstRandomNumber = Engine.getRandomNumber();
-            int secondRandomNumber = Engine.getRandomNumber();
+            int firstRandomNumber = Utils.getRandomNumber(1,20);
+            int secondRandomNumber = Utils.getRandomNumber(1,20);
             String[] operations = {"+", "-", "*"};
             String operation = operations[random.nextInt(operations.length)];
             String question = firstRandomNumber + " " + operation + " " + secondRandomNumber;
@@ -31,5 +31,8 @@ public class Calc {
             case "-" -> firstNumber - secondNumber;
             default -> throw new Error("Unknown operator: " + operation);
         };
+    }
+    public static void getRulesCalc() {
+        System.out.println("What is the result of the expression?");
     }
 }

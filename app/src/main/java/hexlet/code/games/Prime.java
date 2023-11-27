@@ -1,13 +1,13 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
+import hexlet.code.Utils;
 public class Prime {
     private static final int DIVISOR_6 = 3;
     private static final int DIVISOR_5 = 5;
 
     public static void play() {
-        Engine.getRulesPrime();
+        getRulesPrime();
         String[][] questionsAndAnswers = generateQuestionsAndAnswers();
         Engine.run(questionsAndAnswers);
     }
@@ -15,7 +15,7 @@ public class Prime {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int number = Engine.getRandomNumber();
+            int number = Utils.getRandomNumber(1,200);
             String numberString = String.valueOf(number);
             questionsAndAnswers[iterationLimit][0] = numberString;
             questionsAndAnswers[iterationLimit][1] = isPrime(number) ? "yes" : "no";
@@ -42,5 +42,8 @@ public class Prime {
             step = DIVISOR_6 - step;
         }
         return true;
+    }
+    public static void getRulesPrime() {
+        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
     }
 }

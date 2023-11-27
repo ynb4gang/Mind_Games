@@ -1,18 +1,18 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
+import hexlet.code.Utils;
 public class GCD {
     public static void play() {
-        Engine.getRulesGCD();
+        getRulesGCD();
         String[][] questionsAndAnswers = questionsAndAnswers();
         Engine.run(questionsAndAnswers);
     }
     private static String[][] questionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int firstRandomNumber = Engine.getRandomNumber();
-            int secondRandomNumber = Engine.getRandomNumber();
+            int firstRandomNumber = Utils.getRandomNumber(1,60);
+            int secondRandomNumber = Utils.getRandomNumber(1,60);
             String question = firstRandomNumber + " " + secondRandomNumber;
             String correctAnswer = String.valueOf(findGCD(firstRandomNumber, secondRandomNumber));
             questionsAndAnswers[iterationLimit][0] = question;
@@ -27,5 +27,8 @@ public class GCD {
             a = temp;
         }
         return Math.abs(a);
+    }
+    public static void getRulesGCD() {
+        System.out.println("Find the greatest common divisor of given numbers.");
     }
 }

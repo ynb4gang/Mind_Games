@@ -1,14 +1,14 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
+import hexlet.code.Utils;
 import java.util.Random;
 
 public class Progression {
     private static final int RANDOM_NUMBER_8 = 8;
     private static final int RANDOM_NUMBER_15 = 15;
     public static void play() {
-        Engine.getRulesProgression();
+        getRulesProgression();
         String[][] questionsAndAnswers = questionsAndAnswers();
         Engine.run(questionsAndAnswers);
     }
@@ -16,7 +16,7 @@ public class Progression {
         Random random = new Random();
         String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
         for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int startValue = Engine.getRandomNumber();
+            int startValue = Utils.getRandomNumber(1,100);
             int step = getRandomStep(random);
             int marker = getRandomMarker(random);
             String check = String.valueOf(startValue + (step * marker));
@@ -43,5 +43,8 @@ public class Progression {
     }
     private static int getRandomMarker(Random random) {
         return random.nextInt(RANDOM_NUMBER_8);
+    }
+    public static void getRulesProgression() {
+        System.out.println("What number is missing in the progression?");
     }
 }
