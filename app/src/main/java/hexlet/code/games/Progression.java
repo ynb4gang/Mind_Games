@@ -22,7 +22,7 @@ public class Progression {
             int sizeProgression = Utils.getRandomNumber(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE);
             int startValue = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_100);
             int step = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_15);
-            int marker = Utils.getRandomNumber(1, sizeProgression);
+            int marker = Utils.getRandomNumber(1, sizeProgression - 1);
             String check = String.valueOf(startValue + (step * marker));
             String[] question = generateProgressionQuestion(startValue, step, sizeProgression);
             question[marker] = "..";
