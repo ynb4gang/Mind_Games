@@ -22,7 +22,7 @@ public class App {
         int gameNumber = greeting();
         switch (gameNumber) {
             case GREET_GAME:
-                Cli.play();
+                Cli.greeting();
                 break;
             case EVEN_GAME:
                 Greet.play();

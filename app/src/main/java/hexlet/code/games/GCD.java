@@ -3,17 +3,17 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 public class GCD {
-    private static final int RANDOM_NUMBER_60 = 60;
+    private static final int MAX_RANDOM_NUMBER_60 = 60;
+    private static final String RULES = "Find the greatest common divisor of given numbers.";
     public static void play() {
-        getRulesGCD();
         String[][] questionsAndAnswers = questionsAndAnswers();
-        Engine.run(questionsAndAnswers);
+        Engine.run(questionsAndAnswers, RULES);
     }
     private static String[][] questionsAndAnswers() {
-        String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
-        for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int firstRandomNumber = Utils.getRandomNumber(1, RANDOM_NUMBER_60);
-            int secondRandomNumber = Utils.getRandomNumber(1, RANDOM_NUMBER_60);
+        String[][] questionsAndAnswers = new String[Engine.WIN_GAME_LIMIT][2];
+        for (int iterationLimit = 0; iterationLimit < Engine.WIN_GAME_LIMIT; iterationLimit++) {
+            int firstRandomNumber = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_60);
+            int secondRandomNumber = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_60);
             String question = firstRandomNumber + " " + secondRandomNumber;
             String correctAnswer = String.valueOf(findGCD(firstRandomNumber, secondRandomNumber));
             questionsAndAnswers[iterationLimit][0] = question;
@@ -28,8 +28,5 @@ public class GCD {
             a = temp;
         }
         return Math.abs(a);
-    }
-    public static void getRulesGCD() {
-        System.out.println("Find the greatest common divisor of given numbers.");
     }
 }

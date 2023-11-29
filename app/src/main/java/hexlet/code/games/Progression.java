@@ -2,51 +2,43 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 import hexlet.code.Utils;
-import java.util.Random;
+
 
 public class Progression {
-    private static final int RANDOM_NUMBER_8 = 8;
-    private static final int RANDOM_NUMBER_15 = 15;
-    private static final int RANDOM_NUMBER_100 = 100;
-    public static final int SIZE = 10;
+    private static final int MAX_RANDOM_NUMBER_8 = 8;
+    private static final int MAX_RANDOM_NUMBER_15 = 15;
+    private static final int MAX_RANDOM_NUMBER_100 = 100;
+    public static final int MIN_ARRAY_SIZE = 5;
+    public static final int MAX_ARRAY_SIZE = 10;
+    private static final String RULES = "What number is missing in the progression?";
+
     public static void play() {
-        getRulesProgression();
         String[][] questionsAndAnswers = questionsAndAnswers();
-        Engine.run(questionsAndAnswers);
+        Engine.run(questionsAndAnswers, RULES);
     }
+
     private static String[][] questionsAndAnswers() {
-        Random random = new Random();
-        String[][] questionsAndAnswers = new String[Engine.MAGIC_NUMBER_3][2];
-        for (int iterationLimit = 0; iterationLimit < Engine.MAGIC_NUMBER_3; iterationLimit++) {
-            int startValue = Utils.getRandomNumber(1, RANDOM_NUMBER_100);
-            int step = getRandomStep(random);
-            int marker = getRandomMarker(random);
+        String[][] questionsAndAnswers = new String[Engine.WIN_GAME_LIMIT][2];
+        for (int iterationLimit = 0; iterationLimit < Engine.WIN_GAME_LIMIT; iterationLimit++) {
+            int startValue = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_100);
+            int step = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_15);
+            int marker = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_8);
+            int sizeProgression = Utils.getRandomNumber(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE);
             String check = String.valueOf(startValue + (step * marker));
-            String question = generateProgressionQuestion(startValue, step, marker);
-            questionsAndAnswers[iterationLimit][0] = question;
+            String[] question = generateProgressionQuestion(startValue, step, sizeProgression);
+            question[marker] = "..";
+            String finalQuestion =  String.join(" ", question);
+            questionsAndAnswers[iterationLimit][0] = finalQuestion;
             questionsAndAnswers[iterationLimit][1] = check;
         }
         return questionsAndAnswers;
     }
-    public static String generateProgressionQuestion(int startValue, int step, int marker) {
-        StringBuilder question = new StringBuilder();
-        for (int i = 0; i < SIZE; i++) {
-            if (i == marker) {
-                question.append(".. ");
-            } else {
-                question.append(startValue).append(" ");
-            }
-            startValue = startValue + step;
+
+    public static String[] generateProgressionQuestion(int startValue, int step, int sizeProgression) {
+        String[] progression = new String[sizeProgression];
+        for (int i = 0; i < sizeProgression; i++) {
+            progression[i] = String.valueOf(startValue + step * i);
         }
-        return question.toString();
-    }
-    private static int getRandomStep(Random random) {
-        return random.nextInt(RANDOM_NUMBER_15);
-    }
-    private static int getRandomMarker(Random random) {
-        return random.nextInt(RANDOM_NUMBER_8);
-    }
-    public static void getRulesProgression() {
-        System.out.println("What number is missing in the progression?");
+        return progression;
     }
 }

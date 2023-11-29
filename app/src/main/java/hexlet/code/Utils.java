@@ -7,4 +7,9 @@ public class Utils {
         Random random = new Random();
         return random.nextInt(finalNumber - firstNumber + 1) + firstNumber;
     }
+    public static String getRandomOperation(String[] operations) {
+        Random random = new Random();
+        int randomIndex = random.nextInt(operations.length);
+        return operations[randomIndex];
+    }
 }
