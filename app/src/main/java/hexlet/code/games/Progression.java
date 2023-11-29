@@ -5,7 +5,6 @@ import hexlet.code.Utils;
 
 
 public class Progression {
-    private static final int MAX_RANDOM_NUMBER_8 = 8;
     private static final int MAX_RANDOM_NUMBER_15 = 15;
     private static final int MAX_RANDOM_NUMBER_100 = 100;
     public static final int MIN_ARRAY_SIZE = 5;
@@ -20,10 +19,10 @@ public class Progression {
     private static String[][] questionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.WIN_GAME_LIMIT][2];
         for (int iterationLimit = 0; iterationLimit < Engine.WIN_GAME_LIMIT; iterationLimit++) {
+            int sizeProgression = Utils.getRandomNumber(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE);
             int startValue = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_100);
             int step = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_15);
-            int marker = Utils.getRandomNumber(1, MAX_RANDOM_NUMBER_8);
-            int sizeProgression = Utils.getRandomNumber(MIN_ARRAY_SIZE, MAX_ARRAY_SIZE);
+            int marker = Utils.getRandomNumber(1, sizeProgression);
             String check = String.valueOf(startValue + (step * marker));
             String[] question = generateProgressionQuestion(startValue, step, sizeProgression);
             question[marker] = "..";
