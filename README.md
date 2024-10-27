@@ -1,5 +1,4 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/ynb4gang/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/ynb4gang/java-project-61/actions)
+### Tests and linter status:
 [![Maintainability](https://api.codeclimate.com/v1/badges/cdb474d7904f6beb4fec/maintainability)](https://codeclimate.com/github/ynb4gang/java-project-61/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/cdb474d7904f6beb4fec/test_coverage)](https://codeclimate.com/github/ynb4gang/java-project-61/test_coverage)
 
